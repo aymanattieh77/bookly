@@ -3,7 +3,7 @@ const iconPath = 'assets/icons/';
 
 class AssetsImagePath {
   static const String logo = '${imagePath}Logo.png';
-  static const String testImage = '${imagePath}test_image.png';
+  static const String testImage = '${imagePath}test_image2.png';
 }
 
 class AssetsJsonPath {
@@ -12,4 +12,5 @@ class AssetsJsonPath {
 
 class AssetsIconsPath {
   static const String search = '${iconPath}search.svg';
+  static const String play = '${iconPath}play.svg';
 }
