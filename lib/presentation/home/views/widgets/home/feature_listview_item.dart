@@ -1,4 +1,5 @@
-import 'package:bookly/presentation/home/views/widgets/play_widget.dart';
+import 'package:bookly/presentation/home/views/widgets/home/play_widget.dart';
+
 import 'package:bookly/presentation/resources/assets.dart';
 
 import 'package:bookly/presentation/resources/values.dart';

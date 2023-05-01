@@ -14,4 +14,6 @@ class AssetsIconsPath {
   static const String search = '${iconPath}search.svg';
   static const String play = '${iconPath}play.svg';
   static const String star = '${iconPath}star.svg';
+  static const String cart = '${iconPath}cart.svg';
+  static const String close = '${iconPath}close.svg';
 }
