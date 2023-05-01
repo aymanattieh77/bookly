@@ -1,3 +1,5 @@
+import 'package:bookly/presentation/home/views/widgets/book_rating.dart';
+import 'package:bookly/presentation/home/views/widgets/custom_book_item.dart';
 import 'package:bookly/presentation/resources/assets.dart';
 import 'package:bookly/presentation/resources/styles.dart';
 import 'package:bookly/presentation/resources/values.dart';
@@ -16,11 +18,7 @@ class BestSellerListViewItem extends StatelessWidget {
           const EdgeInsets.only(left: AppPadding.p30, right: AppPadding.p10),
       child: Row(
         children: [
-          SizedBox(
-            height: 113,
-            width: 86,
-            child: Image.asset(AssetsImagePath.testImage),
-          ),
+          const CustomBookItem(),
           const SizedBox(width: AppSizes.s15),
           Expanded(
             child: Column(
@@ -43,23 +41,7 @@ class BestSellerListViewItem extends StatelessWidget {
                       style: getRegularTextStyle(),
                     ),
                     const Spacer(),
-                    Row(
-                      children: [
-                        const SizedBox(width: 5),
-                        SvgPicture.asset(AssetsIconsPath.star),
-                        const SizedBox(width: 5),
-                        Text(
-                          '4.8',
-                          style: getRegularTextStyle(),
-                        ),
-                        const SizedBox(width: 5),
-                        Text(
-                          '(2390)',
-                          style: getRegularTextStyle3(),
-                        ),
-                        const SizedBox(width: 5),
-                      ],
-                    ),
+                    const BookRating(),
                   ],
                 )
               ],
