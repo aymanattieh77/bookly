@@ -1,4 +1,5 @@
-import 'package:bookly/presentation/home/views/widgets/home/best_seller_listview_item.dart';
+import 'package:bookly/presentation/home/views/widgets/home/best_seller_book_item.dart';
+import 'package:bookly/presentation/home/views/widgets/home/best_seller_books_listview.dart';
 import 'package:bookly/presentation/home/views/widgets/home/custom_appbar.dart';
 
 import 'package:bookly/presentation/home/views/widgets/home/feature_books_listView.dart';
@@ -18,27 +19,17 @@ class HomeViewBody extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const CustomAppBar(),
-          const SizedBox(height: AppSizes.s30),
-          const FeatureBooksListView(),
-          const SizedBox(height: AppSizes.s30),
+        children: const [
+          CustomAppBar(),
+          SizedBox(height: AppSizes.s30),
+          FeatureBooksListView(),
+          SizedBox(height: AppSizes.s30),
           Padding(
-            padding: const EdgeInsets.only(left: AppPadding.p30),
-            child: Text(AppStrings.bestSeller, style: getRegularTextStyle()),
+            padding: EdgeInsets.only(left: AppPadding.p30),
+            child: Text(AppStrings.bestSeller, style: AppStyles.titleSmall),
           ),
-          const SizedBox(height: 15),
-          ListView.separated(
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 6,
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              return const BestSellerListViewItem();
-            },
-            separatorBuilder: (context, index) {
-              return const SizedBox(height: 5);
-            },
-          )
+          SizedBox(height: 15),
+          BestSellerBooksListView()
         ],
       ),
     );

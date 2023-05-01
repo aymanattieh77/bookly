@@ -1,13 +1,12 @@
 import 'package:bookly/presentation/home/views/widgets/book_rating.dart';
-import 'package:bookly/presentation/home/views/widgets/custom_book_item.dart';
-import 'package:bookly/presentation/resources/assets.dart';
+import 'package:bookly/presentation/home/views/widgets/custom_book_image.dart';
+
 import 'package:bookly/presentation/resources/styles.dart';
 import 'package:bookly/presentation/resources/values.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({
+class BestSellerBookItem extends StatelessWidget {
+  const BestSellerBookItem({
     super.key,
   });
 
@@ -18,30 +17,31 @@ class BestSellerListViewItem extends StatelessWidget {
           const EdgeInsets.only(left: AppPadding.p30, right: AppPadding.p10),
       child: Row(
         children: [
-          const CustomBookItem(),
+          const CustomBookImage(),
           const SizedBox(width: AppSizes.s15),
           Expanded(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Harry Potter\nand the Goblet of Fire',
-                  style: getRegularTextStyle2(),
+                  style: AppStyles.titleMedium,
                 ),
                 const SizedBox(height: 5),
-                Text(
+                const Text(
                   'J.K. Rowling',
-                  style: getRegularTextStyle3(),
+                  style: AppStyles.subTitleSmall,
                 ),
                 const SizedBox(height: 5),
                 Row(
-                  children: [
+                  children: const [
                     Text(
                       '19.99 €',
-                      style: getRegularTextStyle(),
+                      style: AppStyles.titleMedium,
                     ),
-                    const Spacer(),
-                    const BookRating(),
+                    Spacer(),
+                    BookRating(),
                   ],
                 )
               ],

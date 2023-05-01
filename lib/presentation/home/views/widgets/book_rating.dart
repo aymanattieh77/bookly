@@ -15,14 +15,14 @@ class BookRating extends StatelessWidget {
         const SizedBox(width: 5),
         SvgPicture.asset(AssetsIconsPath.star),
         const SizedBox(width: 5),
-        Text(
+        const Text(
           '4.8',
-          style: getRegularTextStyle(),
+          style: AppStyles.subTitleSmall,
         ),
         const SizedBox(width: 5),
-        Text(
+        const Text(
           '(2390)',
-          style: getRegularTextStyle3(),
+          style: AppStyles.bodySmall,
         ),
         const SizedBox(width: 5),
       ],
