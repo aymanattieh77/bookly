@@ -1,8 +1,11 @@
-import 'dart:ui';
-
+import 'package:blur/blur.dart';
+import 'package:bookly/presentation/home/views/widgets/best_seller_listview_item.dart';
 import 'package:bookly/presentation/home/views/widgets/custom_appbar.dart';
+import 'package:bookly/presentation/home/views/widgets/feature_listview_item.dart';
 import 'package:bookly/presentation/resources/assets.dart';
-import 'package:bookly/presentation/resources/colors.dart';
+import 'package:bookly/presentation/resources/strings.dart';
+import 'package:bookly/presentation/resources/styles.dart';
+
 import 'package:bookly/presentation/resources/values.dart';
 
 import 'package:flutter/material.dart';
@@ -13,32 +16,46 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CustomAppBar(),
-        const SizedBox(height: AppSizes.s75),
-        Container(
-          height: 225,
-          width: 165,
-          decoration: BoxDecoration(
-            border: Border.all(color: ColorManager.darkGrey),
-            image: const DecorationImage(
-              image: AssetImage(AssetsImagePath.testImage),
-              fit: BoxFit.cover,
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CustomAppBar(),
+          const SizedBox(height: AppSizes.s30),
+          Container(
+            padding: const EdgeInsets.only(left: AppPadding.p22),
+            height: 225,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return const FeatureListViewItem();
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(width: AppSizes.s5);
+              },
             ),
           ),
-          child: Container(
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(
-              border: Border.all(color: ColorManager.darkGrey),
-              color: Colors.grey.withOpacity(0.4),
-            ),
-            child: IconButton(
-                onPressed: () {}, icon: SvgPicture.asset(AssetsIconsPath.play)),
+          const SizedBox(height: AppSizes.s30),
+          Padding(
+            padding: const EdgeInsets.only(left: AppPadding.p30),
+            child: Text(AppStrings.bestSeller, style: getRegularTextStyle()),
           ),
-        ),
-      ],
+          const SizedBox(height: 15),
+          ListView.separated(
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 6,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return const BestSellerListViewItem();
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(height: 5);
+            },
+          )
+        ],
+      ),
     );
   }
 }

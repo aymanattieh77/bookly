@@ -13,4 +13,5 @@ class AssetsJsonPath {
 class AssetsIconsPath {
   static const String search = '${iconPath}search.svg';
   static const String play = '${iconPath}play.svg';
+  static const String star = '${iconPath}star.svg';
 }
