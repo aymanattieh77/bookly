@@ -2,6 +2,7 @@ import 'package:bookly/presentation/home/views/widgets/home/best_seller_books_li
 import 'package:bookly/presentation/home/views/widgets/home/custom_appbar.dart';
 
 import 'package:bookly/presentation/home/views/widgets/home/feature_books_listView.dart';
+import 'package:bookly/presentation/resources/colors.dart';
 import 'package:bookly/presentation/resources/strings.dart';
 import 'package:bookly/presentation/resources/styles.dart';
 
@@ -14,23 +15,41 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return CustomScrollView(
       physics: const BouncingScrollPhysics(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          CustomAppBar(),
-          SizedBox(height: AppSizes.s30),
-          FeatureBooksListView(),
-          SizedBox(height: AppSizes.s50),
-          Padding(
-            padding: EdgeInsets.only(left: AppPadding.p30),
-            child: Text(AppStrings.bestSeller, style: AppStyles.textStyle18),
+      slivers: [
+        SliverAppBar.medium(
+          backgroundColor: ColorManager.primary,
+          flexibleSpace: const CustomAppBar(),
+          elevation: 0,
+          pinned: true,
+          expandedHeight: 0,
+          toolbarHeight: 0,
+        ),
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              SizedBox(height: AppSizes.s20),
+              FeatureBooksListView(),
+              SizedBox(height: AppSizes.s50),
+              Padding(
+                padding: EdgeInsets.only(left: AppPadding.p30),
+                child:
+                    Text(AppStrings.bestSeller, style: AppStyles.textStyle18),
+              ),
+              SizedBox(height: AppSizes.s20),
+            ],
           ),
-          SizedBox(height: AppSizes.s20),
-          BestSellerBooksListView()
-        ],
-      ),
+        ),
+        const SliverFillRemaining(
+          child: Padding(
+            padding:
+                EdgeInsets.only(left: AppPadding.p30, right: AppPadding.p10),
+            child: BestSellerBooksListView(),
+          ),
+        ),
+      ],
     );
   }
 }

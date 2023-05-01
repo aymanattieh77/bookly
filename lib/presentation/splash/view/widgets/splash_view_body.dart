@@ -64,7 +64,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(
       kSplashViewDuration,
       () {
-        Get.to(const HomeView());
+        Get.off(const HomeView());
       },
     );
   }

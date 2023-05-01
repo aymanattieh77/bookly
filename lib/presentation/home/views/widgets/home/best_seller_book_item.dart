@@ -14,51 +14,47 @@ class BestSellerBookItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const heightSpace = SizedBox(height: AppSizes.s5);
-    return Padding(
-      padding:
-          const EdgeInsets.only(left: AppPadding.p30, right: AppPadding.p10),
-      child: Row(
-        children: [
-          const CustomBookImage(),
-          const SizedBox(width: AppSizes.s30),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.7,
-                  child: Text(
-                    'Harry Potter\nand the Goblet of Fire',
-                    style: AppStyles.textStyle20
-                        .copyWith(fontFamily: kGtSectraFine),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                heightSpace,
-                const Text(
-                  'J.K. Rowling',
-                  style: AppStyles.textStyle14,
-                  maxLines: 1,
+    return Row(
+      children: [
+        const CustomBookImage(),
+        const SizedBox(width: AppSizes.s30),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.7,
+                child: Text(
+                  'Harry Potter\nand the Goblet of Fire',
+                  style:
+                      AppStyles.textStyle20.copyWith(fontFamily: kGtSectraFine),
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                heightSpace,
-                Row(
-                  children: const [
-                    Text(
-                      '19.99 €',
-                      style: AppStyles.textStyle20,
-                    ),
-                    Spacer(),
-                    BookRating(),
-                  ],
-                )
-              ],
-            ),
+              ),
+              heightSpace,
+              const Text(
+                'J.K. Rowling',
+                style: AppStyles.textStyle14,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              heightSpace,
+              Row(
+                children: const [
+                  Text(
+                    '19.99 €',
+                    style: AppStyles.textStyle20,
+                  ),
+                  Spacer(),
+                  BookRating(),
+                ],
+              )
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
