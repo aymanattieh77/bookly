@@ -1,6 +1,7 @@
 import 'package:bookly/presentation/home/views/widgets/home/best_seller_listview_item.dart';
 import 'package:bookly/presentation/home/views/widgets/home/custom_appbar.dart';
-import 'package:bookly/presentation/home/views/widgets/home/feature_listview_item.dart';
+
+import 'package:bookly/presentation/home/views/widgets/home/feature_books_listView.dart';
 import 'package:bookly/presentation/resources/strings.dart';
 import 'package:bookly/presentation/resources/styles.dart';
 
@@ -20,20 +21,7 @@ class HomeViewBody extends StatelessWidget {
         children: [
           const CustomAppBar(),
           const SizedBox(height: AppSizes.s30),
-          Container(
-            padding: const EdgeInsets.only(left: AppPadding.p22),
-            height: 225,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return const FeatureListViewItem();
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(width: AppSizes.s5);
-              },
-            ),
-          ),
+          const FeatureBooksListView(),
           const SizedBox(height: AppSizes.s30),
           Padding(
             padding: const EdgeInsets.only(left: AppPadding.p30),
