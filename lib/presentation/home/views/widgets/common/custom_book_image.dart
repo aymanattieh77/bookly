@@ -1,4 +1,5 @@
 import 'package:bookly/presentation/resources/assets.dart';
+import 'package:bookly/presentation/resources/values.dart';
 import 'package:flutter/material.dart';
 
 class CustomBookImage extends StatelessWidget {
@@ -9,10 +10,9 @@ class CustomBookImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.15,
-      width: MediaQuery.of(context).size.height * 0.11,
+      height: AppSizes.s100,
       child: AspectRatio(
-        aspectRatio: 2 / 3,
+        aspectRatio: 3 / 4,
         child: Image.asset(AssetsImagePath.testImage),
       ),
     );
