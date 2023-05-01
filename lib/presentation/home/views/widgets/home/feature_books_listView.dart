@@ -10,9 +10,10 @@ class FeatureBooksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: AppPadding.p22),
+      padding: const EdgeInsets.only(left: AppPadding.p30),
       height: MediaQuery.of(context).size.height * 0.3,
       child: ListView.builder(
+        padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: 5,

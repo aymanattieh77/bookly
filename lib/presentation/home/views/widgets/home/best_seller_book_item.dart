@@ -1,3 +1,4 @@
+import 'package:bookly/app/constants.dart';
 import 'package:bookly/presentation/home/views/widgets/common/book_rating.dart';
 import 'package:bookly/presentation/home/views/widgets/common/custom_book_image.dart';
 
@@ -12,33 +13,42 @@ class BestSellerBookItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const heightSpace = SizedBox(height: AppSizes.s5);
     return Padding(
       padding:
           const EdgeInsets.only(left: AppPadding.p30, right: AppPadding.p10),
       child: Row(
         children: [
           const CustomBookImage(),
-          const SizedBox(width: AppSizes.s15),
+          const SizedBox(width: AppSizes.s30),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Harry Potter\nand the Goblet of Fire',
-                  style: AppStyles.titleMedium,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: Text(
+                    'Harry Potter\nand the Goblet of Fire',
+                    style: AppStyles.textStyle20
+                        .copyWith(fontFamily: kGtSectraFine),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-                const SizedBox(height: 5),
+                heightSpace,
                 const Text(
                   'J.K. Rowling',
-                  style: AppStyles.subTitleSmall,
+                  style: AppStyles.textStyle14,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 5),
+                heightSpace,
                 Row(
                   children: const [
                     Text(
                       '19.99 €',
-                      style: AppStyles.titleMedium,
+                      style: AppStyles.textStyle20,
                     ),
                     Spacer(),
                     BookRating(),
