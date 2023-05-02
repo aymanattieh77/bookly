@@ -10,19 +10,17 @@ class SeeAlsoBooksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Padding(
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.only(left: AppPadding.p30),
-        child: ListView.builder(
-          padding: EdgeInsets.zero,
-          scrollDirection: Axis.horizontal,
-          itemCount: 15,
-          itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 1.5),
-              child: CustomBookImage(),
-            );
-          },
-        ),
+        scrollDirection: Axis.horizontal,
+        itemCount: 15,
+        itemBuilder: (context, index) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 1.5),
+            child: CustomBookImage(),
+          );
+        },
       ),
     );
   }
