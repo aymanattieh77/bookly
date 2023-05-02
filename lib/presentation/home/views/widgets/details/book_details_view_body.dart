@@ -1,8 +1,10 @@
 import 'package:bookly/presentation/home/views/widgets/common/book_rating.dart';
+import 'package:bookly/presentation/home/views/widgets/common/custom_book_image.dart';
 import 'package:bookly/presentation/home/views/widgets/details/book_details_image.dart';
 import 'package:bookly/presentation/home/views/widgets/details/book_price_preview_widget.dart';
 import 'package:bookly/presentation/home/views/widgets/details/custom_book_details_appbar.dart';
-import 'package:bookly/presentation/resources/assets.dart';
+import 'package:bookly/presentation/home/views/widgets/details/see_also_books_listview.dart';
+
 import 'package:bookly/presentation/resources/colors.dart';
 import 'package:bookly/presentation/resources/strings.dart';
 import 'package:bookly/presentation/resources/styles.dart';
@@ -28,11 +30,23 @@ class BookDetailsViewBody extends StatelessWidget {
         const SizedBox(height: AppSizes.s10),
         Text('Rudyard Kipling',
             style:
-                AppStyles.textStyle18.copyWith(color: ColorManager.darkGrey)),
-        const SizedBox(height: AppSizes.s20),
+                AppStyles.textStyle16.copyWith(color: ColorManager.darkGrey)),
+        const SizedBox(height: AppSizes.s15),
         const BookRating(),
         const SizedBox(height: AppSizes.s30),
-        const BookPriceAndPreview()
+        const BookPriceAndPreview(),
+        const SizedBox(height: AppSizes.s20),
+        Container(
+          alignment: AlignmentDirectional.centerStart,
+          padding: const EdgeInsets.only(left: AppPadding.p30),
+          child: const Text(
+            AppStrings.youCanAlsoLike,
+            style: AppStyles.textStyle14,
+          ),
+        ),
+        const SizedBox(height: AppSizes.s5),
+        const SeeAlsoBooksListView(),
+        const SizedBox(height: AppSizes.s20),
       ],
     );
   }
