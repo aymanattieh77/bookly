@@ -12,7 +12,7 @@ class BookPriceAndPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
+      padding: const EdgeInsets.symmetric(horizontal: AppPadding.p38),
       child: Row(
         children: [
           Expanded(
