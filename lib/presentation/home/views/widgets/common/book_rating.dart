@@ -14,6 +14,7 @@ class BookRating extends StatelessWidget {
   Widget build(BuildContext context) {
     const widthSpace = SizedBox(width: AppSizes.s5);
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         widthSpace,
         SvgPicture.asset(AssetsIconsPath.star),

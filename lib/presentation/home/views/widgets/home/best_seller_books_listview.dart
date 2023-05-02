@@ -1,6 +1,8 @@
+import 'package:bookly/app/routers.dart';
 import 'package:bookly/presentation/home/views/widgets/home/best_seller_book_item.dart';
 import 'package:bookly/presentation/resources/values.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BestSellerBooksListView extends StatelessWidget {
   const BestSellerBooksListView({
@@ -15,9 +17,14 @@ class BestSellerBooksListView extends StatelessWidget {
       itemCount: 6,
       // shrinkWrap: true,
       itemBuilder: (context, index) {
-        return const Padding(
-          padding: EdgeInsets.only(bottom: AppPadding.p5),
-          child: BestSellerBookItem(),
+        return InkWell(
+          onTap: () {
+            GoRouter.of(context).push(Routers.details);
+          },
+          child: const Padding(
+            padding: EdgeInsets.only(bottom: AppPadding.p5),
+            child: BestSellerBookItem(),
+          ),
         );
       },
     );
