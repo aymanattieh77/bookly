@@ -2,6 +2,7 @@ import 'package:bookly/presentation/resources/assets.dart';
 import 'package:bookly/presentation/resources/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomBookDetailsAppbar extends StatelessWidget {
   const CustomBookDetailsAppbar({
@@ -16,7 +17,9 @@ class CustomBookDetailsAppbar extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).pop();
+            },
             icon: SvgPicture.asset(
               AssetsIconsPath.close,
             ),
