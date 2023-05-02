@@ -39,7 +39,7 @@ class BookDetailsViewBody extends StatelessWidget {
         const BookPriceAndPreview(),
         const SizedBox(height: AppSizes.s20),
         const SeeAlsoBooksSection(),
-        const SizedBox(height: AppSizes.s20),
+        const SizedBox(height: AppSizes.s15),
       ],
     );
   }

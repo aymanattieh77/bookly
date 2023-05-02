@@ -8,4 +8,5 @@ class ColorManager {
   static const Color darkGrey = Color(0xff979797);
   static const Color orange = Color(0xffEF8262);
   static const Color black = Color(0xff000000);
+  static const Color indigo = Color(0xff755DFF);
 }

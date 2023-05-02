@@ -22,7 +22,7 @@ class SeeAlsoBooksSection extends StatelessWidget {
               style: AppStyles.textStyle14,
             ),
           ),
-          const SizedBox(height: AppSizes.s5),
+          const SizedBox(height: AppSizes.s10),
           Expanded(
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),

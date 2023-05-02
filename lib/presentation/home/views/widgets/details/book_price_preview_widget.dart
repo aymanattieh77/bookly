@@ -1,6 +1,7 @@
+import 'package:bookly/presentation/components/custom_elevated_button.dart';
 import 'package:bookly/presentation/resources/colors.dart';
 import 'package:bookly/presentation/resources/strings.dart';
-import 'package:bookly/presentation/resources/styles.dart';
+
 import 'package:bookly/presentation/resources/values.dart';
 import 'package:flutter/material.dart';
 
@@ -16,37 +17,29 @@ class BookPriceAndPreview extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: ColorManager.white,
-                minimumSize: const Size.fromHeight(AppSizes.s40),
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
-                ),
-              ),
-              onPressed: () {},
-              child: Text(
-                '19.99€',
-                style: AppStyles.button.copyWith(color: ColorManager.black),
-              ),
+            child: CustomElevatedButton(
+              backgroundColor: ColorManager.white,
+              label: '19.99€',
+              labelColor: ColorManager.black,
+              press: () {},
             ),
           ),
           Expanded(
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: ColorManager.orange,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(10),
-                    bottomLeft: Radius.circular(10),
-                  ),
+            child: Container(
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                  offset: const Offset(0, 8),
+                  blurRadius: 12.0,
+                  color: ColorManager.indigo.withOpacity(0.1725),
                 ),
-                minimumSize: const Size.fromHeight(AppSizes.s40),
+              ]),
+              child: CustomElevatedButton(
+                isLeftButton: false,
+                backgroundColor: ColorManager.orange,
+                label: AppStrings.freePreview,
+                labelColor: ColorManager.white,
+                press: () {},
               ),
-              child: const Text(AppStrings.freePreview),
             ),
           ),
         ],
