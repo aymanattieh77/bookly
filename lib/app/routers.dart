@@ -20,12 +20,10 @@ abstract class AppRouter {
       GoRoute(
         path: Routers.home,
         builder: (context, state) => const HomeView(),
-        routes: [
-          GoRoute(
-            path: Routers.details,
-            builder: (context, state) => const BookDetailsView(),
-          ),
-        ],
+      ),
+      GoRoute(
+        path: Routers.details,
+        builder: (context, state) => const BookDetailsView(),
       ),
     ],
   );
