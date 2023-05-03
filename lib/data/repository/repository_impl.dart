@@ -16,19 +16,16 @@ class RepositoryImpl implements Repository {
       bool newest = false,
       bool relevance = false}) async {
     try {
-      print('start');
       final response = await _remoteDateSource.fetchBooks(q,
           free: free, paid: paid, relevance: relevance, newest: newest);
 
       List<BookItem> items = response.items ?? [];
-      print('end');
+
       return Right(items);
     } catch (e) {
       if (e is DioError) {
-        print(e.toString());
         return Left(ErrorHandler.fromDioError(e));
       } else {
-        print(e.toString());
         return Left(Failure(1, e.toString()));
       }
     }
