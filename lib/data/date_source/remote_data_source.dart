@@ -29,11 +29,11 @@ class RemoteDataSourceImpl implements RemoteDateSource {
 }
 
 String getFilteringQuery(bool free, bool paid) {
-  if (free & paid) {
+  if (free && paid) {
     return 'ebooks';
-  } else if (free & paid == false) {
+  } else if (free == true && paid == false) {
     return 'free-ebooks';
-  } else if (paid & free == false) {
+  } else if (paid == true && free == false) {
     return 'paid-ebooks';
   } else {
     return 'ebooks';
@@ -43,9 +43,9 @@ String getFilteringQuery(bool free, bool paid) {
 String getSotingQuery(bool newest, bool relevance) {
   if (newest & relevance) {
     return 'relevance';
-  } else if (newest & relevance == false) {
+  } else if (newest == true && relevance == false) {
     return 'newest';
-  } else if (relevance & newest == false) {
+  } else if (relevance == true && newest == false) {
     return 'relevance';
   } else {
     return 'relevance'; //default
