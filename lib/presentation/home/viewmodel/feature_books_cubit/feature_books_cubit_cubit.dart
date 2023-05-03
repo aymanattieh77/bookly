@@ -14,10 +14,10 @@ class FeatureBooksCubitCubit extends Cubit<FeatureBooksCubitState> {
     emit(FeatureBooksCubitLoading());
 
     (await _repository.fetchBooks('batman', relevance: true)).fold(
-      (failure) => () {
+      (failure) {
         emit(FeatureBooksCubitFailure(message: failure.message));
       },
-      (items) => () {
+      (items) {
         emit(FeatureBooksCubitSuccess(items: items));
       },
     );
