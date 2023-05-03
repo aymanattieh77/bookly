@@ -29,16 +29,22 @@ class HomeViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              SizedBox(height: AppSizes.s20),
-              FeatureBooksListView(),
-              SizedBox(height: AppSizes.s50),
+            children: [
+              const SizedBox(height: AppSizes.s20),
+              const FeatureBooksListView(),
+              const SizedBox(height: AppSizes.s50),
               Padding(
-                padding: EdgeInsets.only(left: AppPadding.p30),
-                child:
-                    Text(AppStrings.bestSeller, style: AppStyles.textStyle18),
+                padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
+                child: Row(
+                  children: [
+                    const Text(AppStrings.bestSeller,
+                        style: AppStyles.textStyle18),
+                    const Spacer(),
+                    IconButton(onPressed: () {}, icon: const Icon(Icons.filter))
+                  ],
+                ),
               ),
-              SizedBox(height: AppSizes.s20),
+              const SizedBox(height: AppSizes.s20),
             ],
           ),
         ),
