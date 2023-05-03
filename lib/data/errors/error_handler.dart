@@ -22,7 +22,7 @@ class ErrorHandler {
       case DioErrorType.connectionError:
         return ResponseStatusCode.connectTimeOut.getFailure();
       case DioErrorType.unknown:
-        return ResponseStatusCode.defaultError.getFailure();
+        return fromResponseError(dioError.response!.statusCode);
     }
   }
 

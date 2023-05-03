@@ -21,13 +21,21 @@ class _APIService implements APIService {
   String? baseUrl;
 
   @override
-  Future<BookApiResponse> getBooksItems(String q) async {
+  Future<BookModel> fetchBooks(
+    String q, {
+    String filtering = 'ebooks',
+    String orderBy = 'newest',
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'q': q};
+    final queryParameters = <String, dynamic>{
+      r'q': q,
+      r'Filtering': filtering,
+      r'orderBy': orderBy,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<BookApiResponse>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<BookModel>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -39,7 +47,7 @@ class _APIService implements APIService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = BookApiResponse.fromJson(_result.data!);
+    final value = BookModel.fromJson(_result.data!);
     return value;
   }
 
