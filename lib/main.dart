@@ -6,15 +6,13 @@ import 'package:bookly/domain/repository/repository.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
+import 'app/service_locator.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupAppService();
 
-  final dio = Dio();
-  // dio.interceptors.add(LogInterceptor());
-  final appService = APIService(dio);
-  final RemoteDateSource remoteDateSource = RemoteDataSourceImpl(appService);
-  final Repository repository = RepositoryImpl(remoteDateSource);
-  final response = await repository.fetchBooks('batman');
+  final response = await getIt<Repository>().fetchBooks('batman');
 
   response
       .fold(
