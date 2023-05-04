@@ -4,6 +4,7 @@ import 'package:bookly/presentation/resources/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class FeatureBookItem extends StatelessWidget {
   const FeatureBookItem({super.key, required this.imageUrl});
@@ -18,7 +19,8 @@ class FeatureBookItem extends StatelessWidget {
         children: [
           CachedNetworkImage(
             imageUrl: imageUrl,
-            placeholder: (context, url) => const CircularProgressIndicator(),
+            progressIndicatorBuilder: (context, url, _) =>
+                LottieBuilder.asset(AssetsJsonPath.loading),
           ),
           PlayWidget(press: () {}),
         ],

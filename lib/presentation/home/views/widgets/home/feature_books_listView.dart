@@ -1,5 +1,6 @@
 import 'package:bookly/data/mappers/mappers.dart';
 import 'package:bookly/data/responses/book_model/book_item.dart';
+import 'package:bookly/presentation/state_renderer/custom_feature_books_loading.dart';
 import 'package:bookly/presentation/home/viewmodel/feature_books_cubit/feature_books_cubit_cubit.dart';
 import 'package:bookly/presentation/home/views/widgets/home/feature_book_item.dart';
 import 'package:bookly/presentation/resources/values.dart';
@@ -26,7 +27,7 @@ class FeatureBooksListView extends StatelessWidget {
             child: Text(state.message),
           );
         } else if (state is FeatureBooksCubitLoading) {
-          return const CircularProgressIndicator();
+          return const CustomFeatureBooksLoading();
         } else {
           return Container(
             color: Colors.yellow,

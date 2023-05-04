@@ -6,6 +6,7 @@ import 'package:bookly/data/repository/repository_impl.dart';
 import 'package:bookly/domain/repository/repository.dart';
 import 'package:bookly/presentation/home/viewmodel/feature_books_cubit/feature_books_cubit_cubit.dart';
 import 'package:bookly/presentation/home/viewmodel/newest_books_cubit/newest_books_cubit.dart';
+import 'package:bookly/presentation/home/viewmodel/similer_books_cubit/similer_books_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -30,5 +31,11 @@ void setupAppCubit() {
   }
   if (!GetIt.I.isRegistered<NewestBooksCubit>()) {
     getIt.registerFactory<NewestBooksCubit>(() => NewestBooksCubit(getIt()));
+  }
+}
+
+detailsBooksCubit() {
+  if (!GetIt.I.isRegistered<SimilerBooksCubit>()) {
+    getIt.registerFactory<SimilerBooksCubit>(() => SimilerBooksCubit(getIt()));
   }
 }

@@ -12,7 +12,7 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
   fetchNewsetBooks() async {
     emit(NewestBooksLoading());
 
-    (await _repository.fetchBooks('computer science', newest: true)).fold(
+    (await _repository.fetchBooks('dc universe', newest: true)).fold(
       (failure) {
         emit(NewestBooksFailure(message: failure.message));
       },
