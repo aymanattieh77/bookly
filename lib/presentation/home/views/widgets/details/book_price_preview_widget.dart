@@ -1,3 +1,4 @@
+import 'package:bookly/domain/models/book_models/book_volume.dart';
 import 'package:bookly/presentation/components/custom_elevated_button.dart';
 import 'package:bookly/presentation/resources/colors.dart';
 import 'package:bookly/presentation/resources/strings.dart';
@@ -8,8 +9,9 @@ import 'package:flutter/material.dart';
 class BookPriceAndPreview extends StatelessWidget {
   const BookPriceAndPreview({
     super.key,
+    required this.bookVolume,
   });
-
+  final BookVolume bookVolume;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,7 +21,7 @@ class BookPriceAndPreview extends StatelessWidget {
           Expanded(
             child: CustomElevatedButton(
               backgroundColor: ColorManager.white,
-              label: '19.99€',
+              label: getPrice(),
               labelColor: ColorManager.black,
               press: () {},
             ),
@@ -45,5 +47,13 @@ class BookPriceAndPreview extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String getPrice() {
+    if (bookVolume.price == 0.0) {
+      return 'Free';
+    } else {
+      return '${bookVolume.price}€';
+    }
   }
 }

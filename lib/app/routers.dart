@@ -1,5 +1,6 @@
 // GoRouter configuration
 import 'package:bookly/app/service_locator.dart';
+import 'package:bookly/domain/models/book_models/book_volume.dart';
 
 import 'package:bookly/presentation/home/viewmodel/feature_books_cubit/feature_books_cubit_cubit.dart';
 import 'package:bookly/presentation/home/viewmodel/newest_books_cubit/newest_books_cubit.dart';
@@ -33,7 +34,8 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: Routers.details,
-        builder: (context, state) => const BookDetailsView(),
+        builder: (context, state) =>
+            BookDetailsView(bookVolumn: state.extra as BookVolume),
       ),
       GoRoute(
         path: Routers.search,

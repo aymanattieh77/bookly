@@ -49,7 +49,8 @@ Widget _bestSellerBooksListView(List<BookItem> items) {
     itemBuilder: (context, index) {
       return InkWell(
         onTap: () {
-          GoRouter.of(context).push(Routers.details);
+          GoRouter.of(context)
+              .push(Routers.details, extra: items[index].toDomain());
         },
         child: Padding(
           padding: const EdgeInsets.only(bottom: AppPadding.p5),
