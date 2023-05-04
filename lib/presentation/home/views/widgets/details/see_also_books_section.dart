@@ -5,6 +5,7 @@ import 'package:bookly/presentation/home/views/widgets/common/custom_book_image.
 import 'package:bookly/presentation/resources/strings.dart';
 import 'package:bookly/presentation/resources/styles.dart';
 import 'package:bookly/presentation/resources/values.dart';
+import 'package:bookly/presentation/state_renderer/custom_see_also_books_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,11 +31,11 @@ class SeeAlsoBooksSection extends StatelessWidget {
           BlocBuilder<SimilerBooksCubit, SimilerBooksState>(
             builder: (context, state) {
               if (state is SimilerBooksSuccess) {
-                return Expanded(child: seeAlsoBooksListView(state.items));
+                return seeAlsoBooksListView(state.items);
               } else if (state is SimilerBooksFailure) {
                 return Text(state.message);
               } else if (state is SimilerBooksLoading) {
-                return const CircularProgressIndicator();
+                return const CustomSeeAlsoBooksLoading();
               } else {
                 return Container(
                   height: 20,
@@ -50,16 +51,18 @@ class SeeAlsoBooksSection extends StatelessWidget {
 }
 
 Widget seeAlsoBooksListView(List<BookItem> items) {
-  return ListView.builder(
-    physics: const BouncingScrollPhysics(),
-    padding: const EdgeInsets.only(left: AppPadding.p30),
-    scrollDirection: Axis.horizontal,
-    itemCount: items.length,
-    itemBuilder: (context, index) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 1.5),
-        child: CustomBookImage(imageUrl: items[index].toDomain().imageUrl),
-      );
-    },
+  return Expanded(
+    child: ListView.builder(
+      physics: const BouncingScrollPhysics(),
+      padding: const EdgeInsets.only(left: AppPadding.p30),
+      scrollDirection: Axis.horizontal,
+      itemCount: items.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 1.5),
+          child: CustomBookImage(imageUrl: items[index].toDomain().imageUrl),
+        );
+      },
+    ),
   );
 }
