@@ -5,6 +5,7 @@ import 'package:bookly/presentation/home/views/widgets/common/custom_book_image.
 import 'package:bookly/presentation/resources/strings.dart';
 import 'package:bookly/presentation/resources/styles.dart';
 import 'package:bookly/presentation/resources/values.dart';
+import 'package:bookly/presentation/state_renderer/custom_error_widget.dart';
 import 'package:bookly/presentation/state_renderer/custom_see_also_books_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +34,10 @@ class SeeAlsoBooksSection extends StatelessWidget {
               if (state is SimilerBooksSuccess) {
                 return seeAlsoBooksListView(state.items);
               } else if (state is SimilerBooksFailure) {
-                return Text(state.message);
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  showErrorDialog(context, state.message);
+                });
+                return Container();
               } else if (state is SimilerBooksLoading) {
                 return const CustomSeeAlsoBooksLoading();
               } else {

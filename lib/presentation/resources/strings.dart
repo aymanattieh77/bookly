@@ -5,6 +5,9 @@ class AppStrings {
   static const String readBooksWithBookly = 'Read Books With Bookly';
   static const String search = 'Search';
   static const String searchResult = 'Search Result';
+  static const String somethingWrong = 'Something Wrong';
+  static const String restartApp = 'Restart App';
+  static const String ok = 'Ok';
 
   // handle error
   static const String statusOk = 'ok';

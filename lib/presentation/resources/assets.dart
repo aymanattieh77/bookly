@@ -9,6 +9,7 @@ class AssetsImagePath {
 class AssetsJsonPath {
   static const String waiting = 'assets/json/waiting.json';
   static const String loading = 'assets/json/loading.json';
+  static const String error = 'assets/json/error.json';
 }
 
 class AssetsIconsPath {

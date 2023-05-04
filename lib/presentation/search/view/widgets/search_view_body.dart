@@ -8,6 +8,7 @@ import 'package:bookly/presentation/resources/values.dart';
 import 'package:bookly/presentation/search/view/widgets/custom_search_text_field.dart';
 import 'package:bookly/presentation/search/viewmodel/search_books_cubit/search_books_cubit.dart';
 import 'package:bookly/presentation/state_renderer/custom_best_seller_books_loading.dart';
+import 'package:bookly/presentation/state_renderer/custom_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -58,7 +59,10 @@ class _SearchViewBodyState extends State<SearchViewBody> {
               } else if (state is SearchBooksLoading) {
                 return const Expanded(child: CustomBestSellerBooksLoading());
               } else if (state is SearchBooksFailure) {
-                return Text(state.message);
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  showErrorDialog(context, state.message);
+                });
+                return Container();
               } else {
                 return Container();
               }

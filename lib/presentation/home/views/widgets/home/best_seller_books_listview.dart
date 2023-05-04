@@ -6,6 +6,7 @@ import 'package:bookly/presentation/home/viewmodel/newest_books_cubit/newest_boo
 import 'package:bookly/presentation/home/views/widgets/home/best_seller_book_item.dart';
 import 'package:bookly/presentation/resources/values.dart';
 import 'package:bookly/presentation/state_renderer/custom_best_seller_books_loading.dart';
+import 'package:bookly/presentation/state_renderer/custom_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -25,10 +26,10 @@ class BestSellerBooksListView extends StatelessWidget {
             child: _bestSellerBooksListView(state.items),
           );
         } else if (state is NewestBooksFailure) {
-          return Container(
-            color: Colors.red,
-            child: Text(state.message),
-          );
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            showErrorDialog(context, state.message);
+          });
+          return Container();
         } else if (state is NewestBooksLoading) {
           return const CustomBestSellerBooksLoading();
         } else {
