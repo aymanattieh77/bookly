@@ -1,4 +1,4 @@
-import 'package:blur/blur.dart';
+import 'package:bookly/presentation/components/blur.dart';
 import 'package:bookly/presentation/resources/assets.dart';
 import 'package:bookly/presentation/resources/colors.dart';
 import 'package:bookly/presentation/resources/values.dart';
