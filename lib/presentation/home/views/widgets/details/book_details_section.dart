@@ -28,7 +28,7 @@ class BookDetailsSection extends StatelessWidget {
               fontStyle: FontStyle.italic),
         ),
         const SizedBox(height: AppSizes.s15),
-        const BookRating(),
+        // const BookRating(),
       ],
     );
   }

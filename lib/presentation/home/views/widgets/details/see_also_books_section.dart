@@ -32,7 +32,8 @@ class SeeAlsoBooksSection extends StatelessWidget {
               itemBuilder: (context, index) {
                 return const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 1.5),
-                  child: CustomBookImage(),
+                  //todo   child: CustomBookImage(),
+                  child: Text('dasdsdks'),
                 );
               },
             ),

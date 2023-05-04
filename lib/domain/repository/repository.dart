@@ -1,5 +1,6 @@
 import 'package:bookly/data/errors/failure.dart';
-import 'package:bookly/domain/models/book_model/book_item.dart';
+import 'package:bookly/data/responses/book_model/book_item.dart';
+
 import 'package:dartz/dartz.dart';
 
 abstract class Repository {
