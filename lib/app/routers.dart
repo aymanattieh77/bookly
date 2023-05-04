@@ -11,6 +11,7 @@ import 'package:bookly/presentation/home/views/home_view.dart';
 import 'package:bookly/presentation/search/view/search_view.dart';
 import 'package:bookly/presentation/search/viewmodel/search_books_cubit/search_books_cubit.dart';
 import 'package:bookly/presentation/splash/view/splash_view.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,6 +20,7 @@ abstract class Routers {
   static const String home = '/home';
   static const String details = '/details';
   static const String search = '/search';
+  static const String webBooks = '/webBooks';
 }
 
 abstract class AppRouter {

@@ -11,7 +11,9 @@ class BookVolume {
   final List<String> categories;
   final double averageRating;
   final int ratingsCount;
+  final String url;
   BookVolume({
+    required this.url,
     required this.id,
     required this.imageUrl,
     required this.title,

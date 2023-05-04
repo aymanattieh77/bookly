@@ -1,3 +1,5 @@
+import 'package:bookly/app/functions.dart';
+
 import 'package:bookly/domain/models/book_models/book_volume.dart';
 import 'package:bookly/presentation/components/custom_elevated_button.dart';
 import 'package:bookly/presentation/resources/colors.dart';
@@ -40,7 +42,9 @@ class BookPriceAndPreview extends StatelessWidget {
                 backgroundColor: ColorManager.orange,
                 label: AppStrings.freePreview,
                 labelColor: ColorManager.white,
-                press: () {},
+                press: () async {
+                  await launchCustomUr(context, bookVolume.url);
+                },
               ),
             ),
           ),
