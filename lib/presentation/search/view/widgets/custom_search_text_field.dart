@@ -5,12 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({super.key});
+  const CustomSearchTextField({super.key, this.onChanged});
+
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       keyboardType: TextInputType.text,
+      onChanged: onChanged,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(
             horizontal: AppPadding.p10, vertical: AppPadding.p10),
