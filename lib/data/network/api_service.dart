@@ -1,6 +1,5 @@
 import 'package:bookly/app/constants.dart';
-
-import 'package:bookly/domain/models/book_model/book_model.dart';
+import 'package:bookly/data/responses/book_model/book_model.dart';
 
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';

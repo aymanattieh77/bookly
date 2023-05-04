@@ -1,4 +1,5 @@
-import 'package:bookly/domain/models/book_model/book_item.dart';
+import 'package:bookly/data/mappers/mappers.dart';
+import 'package:bookly/data/responses/book_model/book_item.dart';
 import 'package:bookly/presentation/home/viewmodel/feature_books_cubit/feature_books_cubit_cubit.dart';
 import 'package:bookly/presentation/home/views/widgets/home/feature_book_item.dart';
 import 'package:bookly/presentation/resources/values.dart';
@@ -46,8 +47,7 @@ Widget _featureBooksListView(List<BookItem> items) {
     itemBuilder: (context, index) {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppPadding.p2),
-        child: FeatureBookItem(
-            imageUrl: items[index].volumeInfo?.imageLinks?.thumbnail ?? ''),
+        child: FeatureBookItem(imageUrl: items[index].toDomain().imageUrl),
       );
     },
   );

@@ -1,6 +1,5 @@
 import 'package:bookly/data/network/api_service.dart';
-
-import 'package:bookly/domain/models/book_model/book_model.dart';
+import 'package:bookly/data/responses/book_model/book_model.dart';
 
 abstract class RemoteDateSource {
   Future<BookModel> fetchBooks(String q,

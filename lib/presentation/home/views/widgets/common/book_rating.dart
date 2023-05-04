@@ -8,8 +8,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 class BookRating extends StatelessWidget {
   const BookRating({
     super.key,
+    required this.rating,
+    required this.ratingCount,
   });
-
+  final String rating;
+  final String ratingCount;
   @override
   Widget build(BuildContext context) {
     const widthSpace = SizedBox(width: AppSizes.s5);
@@ -19,8 +22,8 @@ class BookRating extends StatelessWidget {
         widthSpace,
         SvgPicture.asset(AssetsIconsPath.star),
         widthSpace,
-        const Text(
-          '4.8',
+        Text(
+          rating,
           style: AppStyles.textStyle16,
         ),
         widthSpace,
