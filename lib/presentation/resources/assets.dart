@@ -8,6 +8,7 @@ class AssetsImagePath {
 
 class AssetsJsonPath {
   static const String waiting = 'assets/json/waiting.json';
+  static const String loading = 'assets/json/loading.json';
 }
 
 class AssetsIconsPath {
