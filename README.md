@@ -1,16 +1,24 @@
 # bookly
 
-A new Flutter project.
+A new Flutter project that used google books API.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+this app is used to explore google books
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### packages that used in app
+  cached_network_image 
+  cupertino_icons
+  dartz 
+  dio
+  equatable
+  flutter_bloc
+  flutter_sv
+  get_it
+  go_router
+  internet_connection_checke
+  lottie
+  retrofit
+  skeletons
+  url_launcher
